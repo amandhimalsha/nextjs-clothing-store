@@ -4,12 +4,12 @@ import { products } from "@/data/products";
 export default function Home() {
   return (
     <main>
-      <section className="flex flex-col items-center justify-center text-center py-32 px-6">
-        <h1 className="text-5xl font-bold mb-6">
+      <section className="flex flex-col items-center justify-center text-center py-24 md:py-32 px-6">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6">
          Elevate Your Style
         </h1>
 
-        <p className="text-lg max-w-xl mb-6">
+        <p className="text-base md:text-lg max-w-xl mb-6">
           Discover modern oversized fashion designed for comfort and confidence.
         </p>
 
@@ -22,7 +22,7 @@ export default function Home() {
           Featured Products
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((product) => (
             <ProductCard
               key={product.id}

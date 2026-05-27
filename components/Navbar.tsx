@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center justify-between px-8 py-6 border-b border-gray-800">
+    <nav className="flex flex-col md:flex-row items-center justify-between gap-4 px-8 py-6 border-b border-gray-800">
 
       <h1 className="text-2xl font-bold">
         AURORA
