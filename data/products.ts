@@ -4,7 +4,9 @@ export const products = [
     name: "Oversized Hoodie",
     price: 4500,
     image: "/hoodie.jpg",
-    description: "Premium oversized hoodie for everyday comfort."
+    description: "Premium oversized hoodie for everyday comfort.",
+    category: "Hoodies",
+    sizes: ["S", "M", "L", "XL"],
   },
 
   {
@@ -12,7 +14,9 @@ export const products = [
     name: "Vintage T-Shirt",
     price: 3200,
     image: "/tshirt.jpg",
-    description: "Vintage inspired cotton t-shirt."
+    description: "Vintage inspired cotton t-shirt.",
+    category: "T-Shirts",
+    sizes: ["S", "M", "L", "XL"],
   },
 
   {
@@ -20,6 +24,8 @@ export const products = [
     name: "Cargo Pants",
     price: 5800,
     image: "/cargo.jpg",
-    description: "Relaxed fit cargo pants with utility pockets."
+    description: "Relaxed fit cargo pants with utility pockets.",
+    category: "Pants",
+    sizes: ["30", "32", "34", "36"],
   }
 ];

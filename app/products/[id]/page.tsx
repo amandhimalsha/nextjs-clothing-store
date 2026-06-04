@@ -1,5 +1,6 @@
 import { products } from "@/data/products";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 type ProductPageProps = {
   params: Promise<{
@@ -12,12 +13,17 @@ export default async function ProductPage({
 }: ProductPageProps) {
   const { id } = await params;
 
+  // to show the loading state, i added a delay
+  await new Promise((resolve) =>
+    setTimeout(resolve, 3000)
+  );
+
   const product = products.find(
   (product) => product.id === Number(id)
   );
 
   if (!product) {
-    return <h1>Product not found</h1>;
+    notFound();
   }
 
   return (
@@ -43,9 +49,38 @@ export default async function ProductPage({
             LKR {product.price}
           </p>
 
+          <p className="text-gray-400 mb-4">
+            Category: {product.category}
+          </p>
+
           <p className="text-gray-400">
             {product.description}
           </p>
+
+          <div className="mt-8">
+
+              <h3 className="text-lg font-semibold mb-3">
+                Available Sizes
+              </h3>
+
+              <div className="flex gap-3">
+
+                {product.sizes.map((size) => (
+                  <button
+                    key={size}
+                    className="border border-gray-600 px-4 py-2 rounded-lg"
+                  >
+                    {size}
+                  </button>
+                ))}
+
+              </div>
+
+          </div>
+
+          <button className="mt-8 bg-white text-black px-6 py-3 rounded-lg font-semibold">
+            Add To Cart
+          </button>
 
         </div>
 
