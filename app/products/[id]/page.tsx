@@ -1,6 +1,30 @@
 import { products } from "@/data/products";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+
+  const product = products.find(
+    (product) => product.id === Number(id)
+  );
+
+  if (!product) {
+    return {
+      title: "Product Not Found | AURORA",
+    };
+  }
+
+  return {
+    title: `${product.name} | AURORA`,
+    description: product.description,
+  };
+}
 
 type ProductPageProps = {
   params: Promise<{
