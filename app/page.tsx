@@ -1,5 +1,6 @@
 import ProductCard from "@/components/ProductCard";
 import { products } from "@/data/products";
+import CartCounter from "@/components/CartCounter";
 
 export default function Home() {
   return (
@@ -17,6 +18,10 @@ export default function Home() {
           Shop Now
        </button>
       </section>
+
+
+      
+
       <section className="px-6 pb-20">
         <h2 className="text-3xl font-bold mb-8 text-center">
           Featured Products

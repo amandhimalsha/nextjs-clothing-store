@@ -2,6 +2,9 @@ import { products } from "@/data/products";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import SizeSelector from "@/components/SizeSelector";
+import ProductActions from "@/components/ProductActions";
+
 
 export async function generateMetadata({
   params,
@@ -87,24 +90,15 @@ export default async function ProductPage({
                 Available Sizes
               </h3>
 
-              <div className="flex gap-3">
 
-                {product.sizes.map((size) => (
-                  <button
-                    key={size}
-                    className="border border-gray-600 px-4 py-2 rounded-lg"
-                  >
-                    {size}
-                  </button>
-                ))}
-
-              </div>
+                
 
           </div>
 
-          <button className="mt-8 bg-white text-black px-6 py-3 rounded-lg font-semibold">
-            Add To Cart
-          </button>
+          <ProductActions
+            sizes={product.sizes}
+            productName={product.name}
+          />
 
         </div>
 
