@@ -2,18 +2,24 @@
 
 import { useState } from "react";
 import SizeSelector from "./SizeSelector";
+import { useCart } from "@/context/CartContext";
 
 type ProductActionsProps = {
   sizes: string[];
   productName: string;
+  productId: number;
+
 };
 
 export default function ProductActions({
   sizes,
   productName,
+  productId,
 }: ProductActionsProps) {
 
   const [selectedSize, setSelectedSize] = useState("");
+
+  const { addToCart } = useCart();
 
   const handleAddToCart = () => {
 
@@ -21,6 +27,12 @@ export default function ProductActions({
       alert("Please select a size");
       return;
     }
+
+    addToCart({
+      id: productId,
+      name: productName,
+      size: selectedSize,
+    });
 
     alert(
       `Added ${productName} (${selectedSize}) to cart`

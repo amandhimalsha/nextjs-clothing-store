@@ -98,6 +98,7 @@ export default async function ProductPage({
           <ProductActions
             sizes={product.sizes}
             productName={product.name}
+            productId={product.id}
           />
 
         </div>

@@ -1,6 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { useCart } from "@/context/CartContext";
 
 export default function Navbar() {
+  const { cartItems } = useCart();
+
   return (
     <nav className="flex flex-col md:flex-row items-center justify-between gap-4 px-8 py-6 border-b border-gray-800">
 
@@ -23,6 +28,10 @@ export default function Navbar() {
         </li>
 
       </ul>
+
+      <Link href="/cart">
+        Cart ({cartItems.length})
+      </Link>
     </nav>
   );
 }
