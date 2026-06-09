@@ -8,6 +8,7 @@ type ProductActionsProps = {
   sizes: string[];
   productName: string;
   productId: number;
+  productPrice: number;
 
 };
 
@@ -15,6 +16,7 @@ export default function ProductActions({
   sizes,
   productName,
   productId,
+  productPrice,
 }: ProductActionsProps) {
 
   const [selectedSize, setSelectedSize] = useState("");
@@ -32,6 +34,7 @@ export default function ProductActions({
       id: productId,
       name: productName,
       size: selectedSize,
+      price: productPrice,
     });
 
     alert(

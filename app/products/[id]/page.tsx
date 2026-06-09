@@ -99,6 +99,7 @@ export default async function ProductPage({
             sizes={product.sizes}
             productName={product.name}
             productId={product.id}
+            productPrice={product.price}
           />
 
         </div>
