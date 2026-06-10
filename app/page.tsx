@@ -1,8 +1,15 @@
 import ProductCard from "@/components/ProductCard";
-import { products } from "@/data/products";
-import CartCounter from "@/components/CartCounter";
 
-export default function Home() {
+
+export default async function Home() {
+
+  const response = await fetch(
+    "http://localhost:3000/api/products"
+  );
+
+  const products = await response.json();
+
+
   return (
     <main>
       <section className="flex flex-col items-center justify-center text-center py-24 md:py-32 px-6">
@@ -28,7 +35,7 @@ export default function Home() {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((product) => (
+          {products.map((product: any) => (
             <ProductCard
               key={product.id}
               id={product.id}
