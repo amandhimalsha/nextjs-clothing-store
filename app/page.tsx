@@ -1,4 +1,5 @@
 import ProductCard from "@/components/ProductCard";
+import { Product } from "@/types/Product";
 
 
 export default async function Home() {
@@ -7,7 +8,8 @@ export default async function Home() {
     "http://localhost:3000/api/products"
   );
 
-  const products = await response.json();
+  const products: Product[] =
+  await response.json();
 
 
   return (
@@ -35,7 +37,7 @@ export default async function Home() {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((product: any) => (
+          {products.map((product) => (
             <ProductCard
               key={product.id}
               id={product.id}

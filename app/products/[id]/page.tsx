@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import SizeSelector from "@/components/SizeSelector";
 import ProductActions from "@/components/ProductActions";
+import { Product } from "@/types/Product";
 
 
 export async function generateMetadata({
@@ -45,13 +46,18 @@ export default async function ProductPage({
     setTimeout(resolve, 3000)
   );
 
-  const product = products.find(
-  (product) => product.id === Number(id)
+  const response = await fetch(
+    `http://localhost:3000/api/products/${id}`
   );
 
-  if (!product) {
+  if (!response.ok) {
     notFound();
   }
+
+  const product: Product =
+    await response.json();
+
+  
 
   return (
     <main className="max-w-5xl mx-auto px-8 py-20">
